@@ -1,17 +1,41 @@
-# first we need to generte a randon number array from 1-25
+# first we need to generate a randon number array from 1-25
 def matrix_zero(b,d)
 inex=b.index(d)
 #puts inex
 #puts " i am working till here"
 b[inex]=0
 k=Matrix.build(5,5){|i,j| b[i*5+j]}
-puts k
-y=check_status(b)
-print "Y value before if"
-puts y
+puts "Player Matrix"
 print "\n"
+print k
+y=check_status(b)
+#print "Y value before if"
+#puts y
+#print "\n"
 if(y==2)
-puts " i am inside y=2"
+#puts " i am inside y=2"
+return 6
+else 
+return 5
+end
+end
+def matrix_zero_1(z,value)
+#print z
+#puts value
+inex=z.index(value)
+#puts inex
+#puts " i am working till finding index"
+z[inex]=0
+k2=Matrix.build(5,5){|i,j| z[i*5+j]}
+puts " Computer Matrx"
+print "\n"
+print k2
+y=check_status(z)
+#print "Y value before if"
+#puts y
+#print "\n"
+if(y==2)
+#puts " i am inside y=2"
 return 6
 else 
 return 5
@@ -71,37 +95,80 @@ $bingo=$bingo+1
 puts " second diagonal line"
 end
 
-puts " Bingo value is this"
-puts $bingo
+#puts " Bingo value is this"
+#puts $bingo
 if($bingo==5)
 return 2
-puts " i am donesss"
+#puts " i am donesss"
 else
-puts " 5 is return"
+#puts " 5 is return"
 return 5
 end
 end
 
+def random_no() 
+random_value=$m.sample
+$m.delete(random_value)
+#puts random_value
+return random_value
+
+end
+
 require 'matrix'
-#$bingo=0
-#$b1,$b2,$b3,$b4,$b5,$b6,$b7,$b8,$b9,$b10,$b11,$b12=0
 a=(1...26)
 a=a.to_a
 b=a.shuffle
-c=b
+z=a.shuffle
+
+$m=z.dup
 #print b
+puts " Player Matrix"
 j= Matrix.build(5,5){|i,j| b[i*5+j]}
+z1=Matrix.build(5,5){|i,j| z[i*5+j]}     # computer matrix generated
+
+print j
+
+print"\n\n\n" 
+puts " computer Matrix"
+print z1
+print "\n"
 #puts j
 k=1
 until k==2 do 
-puts "Enter Number to cut"
+print"\n\n"
+puts "Enter Number to cut for player"
 d=gets.chomp
 d=d.to_i
 #puts d
 e=matrix_zero(b,d)
 if (e==6)
 k=2
+puts " Player wins it"
+end
+$m.delete(d)
+e=matrix_zero_1(z,d)
+if (e==6)
+k=2
+puts " computer wins it"
+end
+value=random_no()
+#puts " i am running fine till random_no"
+value=value.to_i
+print"\n"
+puts " No enter by computer"
+puts value
+#print z
+#puts value
+e=matrix_zero_1(z,value)
+if (e==6)
+k=2
+puts " computer wins it"
+end
+e=matrix_zero(b,value)
+if (e==6)
+k=2
+puts " Player wins it"
 end
 end
 
-puts " i am done"
+#puts " i am done"
