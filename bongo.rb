@@ -1,4 +1,5 @@
 # first we need to generate a randon number array from 1-25
+#this is change made to look what branch do.
 def matrix_zero(b,d)
 inex=b.index(d)
 #puts inex
