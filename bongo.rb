@@ -5,6 +5,7 @@ inex=b.index(d)
 #puts " i am working till here"
 b[inex]=0
 k=Matrix.build(5,5){|i,j| b[i*5+j]}
+print "\n"
 puts "Player Matrix"
 print "\n"
 print k
@@ -129,8 +130,8 @@ z1=Matrix.build(5,5){|i,j| z[i*5+j]}     # computer matrix generated
 print j
 
 print"\n\n\n" 
-puts " computer Matrix"
-print z1
+#puts " computer Matrix"
+#print z1
 print "\n"
 #puts j
 k=1
