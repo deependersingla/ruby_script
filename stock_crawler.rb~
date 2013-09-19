@@ -26,7 +26,7 @@ row_data = doc.css('.table.draggable.table-striped.table-hover tr.strong td').ma
   tdata.text
 end
  #From the webpage I took the below value from the table     
-print row_data[2]
+print row_data
 
 p doc.at_xpath("//*[@id='peers']/table/tbody/tr[6]/td[3]").text
 p doc.at_xpath("//*[@id='peers']/table/tbody/tr[6]/td[10]").text
