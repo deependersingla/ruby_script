@@ -39,7 +39,7 @@ def sequential_scraping(subject_pages)
   end
 end
 
-def paralled_scraping(subject_pages)
+def parallel_scraping(subject_pages)
 	agent = Mechanize.new
 	thread_list = []
 	subject_pages.each do |subject_page| 
@@ -60,7 +60,7 @@ Benchmark.bm do |x|
   #run sequential read method
   x.report("Seq:") { sequential_scraping(subject_pages) }
   #run sequential read method
-  x.report("parallel:") { paralled_scraping(subject_pages) }
+  x.report("parallel:") { parallel_scraping(subject_pages) }
 end
 
 
